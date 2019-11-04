@@ -3,22 +3,22 @@
 
 int main()
 {
-    std::cout << "WE GOTTA GET SPONGEBOB BACK";
-    std::cout << std::endl;
-    std::cout << "SPONGEBOB IS JUST THROUGH THESE DOORS WE GOTTA GUESS THE RIGHT CODES TO FIND HIM";
+    std::cout << "Squidward: ah it sure is nice that spongebob isn't around anymore. WE GOTTA GET SPONGEBOB BACK!!!!!" << std::endl;
+    std::cout << "SPONGEBOB IS JUST THROUGH THESE DOORS WE GOTTA GUESS THE RIGHT CODES TO FIND HIM" << std::endl;
 
-    const int a = 4;
-    const int b = 7;
-    const int c = 8;
+    const int CodeA = 4;
+    const int CodeB = 7;
+    const int CodeC = 8;
 
-    const int sum = a + b + c; 
-    const int product = a * b * c; 
+    const int CodeSum = CodeA + CodeB + CodeC; 
+    const int CodeProduct = CodeA * CodeB * CodeC; 
 
     std::cout << std::endl;
-    std::cout << sum;
-    
-    std::cout << std::endl;
-    std::cout << product;
+    std::cout << "+ There are 3 numbers in the code" << std::endl;
+    std::cout << "+ The codes add up to: " << CodeSum << std::endl;
+    std::cout << "+ The codes multiply to give: " << CodeProduct << std::endl;
+
+    int PlayerGuess;
 
     return 0;
 }
