@@ -27,5 +27,14 @@ int main()
     const int GuessSum = GuessA + GuessB + GuessC;
     const int GuessProduct = GuessA * GuessB * GuessC;
 
+    if (GuessSum == CodeSum && GuessProduct == CodeProduct)
+    {
+        std::cout << "O MY GOSH YOU WON YOU GOT SPONGEBOB BACK";
+    }
+    else 
+    {
+       std::cout << "O MY GOSH HOW ARE THIS BAD??? NOW WE'LL NEVER GET SPONGEBOB BACK!!!"; 
+    }
+
     return 0;
 }
