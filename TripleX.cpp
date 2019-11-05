@@ -1,6 +1,19 @@
 // This is my first c++ only project made during the second section of the unreal c++ udemy course
 #include <iostream>
 
+void PrintWinMessage()
+{
+    std::cout << R"(
+_____.___.               __      __.__        
+\__  |   | ____  __ __  /  \    /  \__| ____  
+ /   |   |/  _ \|  |  \ \   \/\/   /  |/    \ 
+ \____   (  <_> )  |  /  \        /|  |   |  \
+ / ______|\____/|____/    \__/\  / |__|___|  /
+ \/                            \/          \/  
+)";
+std::cout << "\nYOU GOT SPONGEBOB BACK";
+}
+
 void PrintIntroduction(int Difficulty)
 {
    if (Difficulty <= 1)
@@ -83,6 +96,8 @@ int main()
             ++LevelDifficulty;
         }
     }
+
+    PrintWinMessage();
 
     return 0;
 }
