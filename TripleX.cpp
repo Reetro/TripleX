@@ -16,13 +16,13 @@ void PrintIntroduction()
  /        \|  |_> >(  <_> )|   |  \/ /_/  >\  ___/ | \_\ \(  <_> )| \_\ \  |        \/ /_/ | |  | |  |  |  |(  <_> )|   |  \    
 /_______  /|   __/  \____/ |___|  /\___  /  \___  >|___  / \____/ |___  / /_______  /\____ | |__| |__|  |__| \____/ |___|  /    
         \/ |__|                 \//_____/       \/     \/             \/          \/      \/                             \/      
-)" << '\n';
+)";
 
-    std::cout << "Squidward: ah it sure is nice that spongebob isn't around anymore......WE GOTTA GET SPONGEBOB BACK!!!!!\n";
+    std::cout << "\n\nSquidward: ah it sure is nice that spongebob isn't around anymore......WE GOTTA GET SPONGEBOB BACK!!!!!\n";
     std::cout << "SPONGEBOB IS JUST THROUGH THESE DOORS WE GOTTA GUESS THE RIGHT CODES TO FIND HIM\n\n";
 }
 
-void PlayGame()
+bool PlayGame()
 {
     // Intro messages
     PrintIntroduction(); 
@@ -54,15 +54,23 @@ void PlayGame()
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
         std::cout << "\nO MY GOSH YOU WON YOU GOT SPONGEBOB BACK";
+        return true;
     }
     else 
     {
        std::cout << "\nO MY GOSH HOW ARE THIS BAD??? NOW WE'LL NEVER GET SPONGEBOB BACK!!!"; 
+       return false;
     }
 }
 
 int main()
 {
-    PlayGame();
+    while(true)
+    {
+        bool bLevelComplete = PlayGame();
+        std::cin.clear();
+        std::cin.ignore();
+    }
+
     return 0;
 }
