@@ -1,7 +1,7 @@
 // This is my first c++ only project made during the second section of the unreal c++ udemy course
 #include <iostream>
 
-void PrintIntroduction()
+void PrintIntroduction(int Difficulty)
 {
     std::cout << R"(
  __      __         .__                                      __           ___________        .__         .__           ____  ___
@@ -19,13 +19,14 @@ void PrintIntroduction()
 )";
 
     std::cout << "\n\nSquidward: ah it sure is nice that spongebob isn't around anymore......WE GOTTA GET SPONGEBOB BACK!!!!!\n";
-    std::cout << "SPONGEBOB IS JUST THROUGH THESE DOORS WE GOTTA GUESS THE RIGHT CODES TO FIND HIM\n\n";
+    std::cout << "SPONGEBOB IS JUST THROUGH THESE LEVEL " << Difficulty;
+    std::cout << " DOORS WE GOTTA GUESS THE RIGHT CODES TO FIND HIM\n\n";
 }
 
-bool PlayGame()
+bool PlayGame(int Difficulty)
 {
     // Intro messages
-    PrintIntroduction(); 
+    PrintIntroduction(Difficulty); 
 
     // Set default code values
     const int CodeA = 4;
@@ -65,11 +66,19 @@ bool PlayGame()
 
 int main()
 {
-    while(true)
+    int LevelDifficulty = 2;
+    const int MaxLevel = 4;
+
+    while (true)
     {
-        bool bLevelComplete = PlayGame();
+        bool bLevelComplete = PlayGame(LevelDifficulty);
         std::cin.clear();
         std::cin.ignore();
+
+        if (bLevelComplete)
+        {
+            ++LevelDifficulty;
+        }
     }
 
     return 0;
