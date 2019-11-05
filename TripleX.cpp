@@ -1,5 +1,6 @@
 // This is my first c++ only project made during the second section of the unreal c++ udemy course
 #include <iostream>
+#include <ctime>
 
 void PrintWinMessage()
 {
@@ -16,27 +17,28 @@ std::cout << "\nYOU GOT SPONGEBOB BACK";
 
 void PrintIntroduction(int Difficulty)
 {
-   if (Difficulty <= 1)
-   {
-        std::cout << R"(
- __      __         .__                                      __           ___________        .__         .__           ____  ___
-/  \    /  \  ____  |  |    ____   ____    _____    ____   _/  |_  ____   \__    ___/_______ |__|______  |  |    ____  \   \/  /
-\   \/\/   /_/ __ \ |  |  _/ ___\ /  _ \  /     \ _/ __ \  \   __\/  _ \    |    |   \_  __ \|  |\____ \ |  |  _/ __ \  \     / 
- \        / \  ___/ |  |__\  \___(  <_> )|  Y Y  \\  ___/   |  | (  <_> )   |    |    |  | \/|  ||  |_> >|  |__\  ___/  /     \ 
-  \__/\  /   \___  >|____/ \___  >\____/ |__|_|  / \___  >  |__|  \____/    |____|    |__|   |__||   __/ |____/ \___  >/___/\  \
-       \/        \/            \/              \/      \/                                        |__|               \/       \_/
-  _________                                       ___.           ___.     ___________    .___.__   __   .__                     
- /   _____/______    ____    ____    ____    ____ \_ |__    ____ \_ |__   \_   _____/  __| _/|__|_/  |_ |__|  ____    ____      
- \_____  \ \____ \  /  _ \  /    \  / ___\ _/ __ \ | __ \  /  _ \ | __ \   |    __)_  / __ | |  |\   __\|  | /  _ \  /    \     
- /        \|  |_> >(  <_> )|   |  \/ /_/  >\  ___/ | \_\ \(  <_> )| \_\ \  |        \/ /_/ | |  | |  |  |  |(  <_> )|   |  \    
-/_______  /|   __/  \____/ |___|  /\___  /  \___  >|___  / \____/ |___  / /_______  /\____ | |__| |__|  |__| \____/ |___|  /    
-        \/ |__|                 \//_____/       \/     \/             \/          \/      \/                             \/      
+ std::cout << R"(
+______________
+|\ ___________ /|
+| |  _ _ _ _  | |
+| | | | | | | | |
+| | |-+-+-+-| | |
+| | |-+-+-+-| | |
+| | |_|_|_|_| | |
+| |     ___   | |
+| |    /__/   | |
+| |   [%==] ()| |
+| |         ||| |
+| |         ()| |
+| |           | |
+| |           | |
+| |           | |
+|_|___________|_|     
 )";
     
     std::cout << "\n\nSquidward: ah it sure is nice that spongebob isn't around anymore......WE GOTTA GET SPONGEBOB BACK!!!!!\n";
     std::cout << "SPONGEBOB IS JUST THROUGH THESE LEVEL " << Difficulty;
     std::cout << " DOORS WE GOTTA GUESS THE RIGHT CODES TO FIND HIM\n\n";
-   }
 }
 
 bool PlayGame(int Difficulty)
@@ -45,9 +47,9 @@ bool PlayGame(int Difficulty)
     PrintIntroduction(Difficulty); 
 
     // Set default code values
-    const int CodeA = 4;
-    const int CodeB = 7;
-    const int CodeC = 8;
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     // Get the sum and product of code values
     const int CodeSum = CodeA + CodeB + CodeC; 
@@ -70,7 +72,7 @@ bool PlayGame(int Difficulty)
     // See if guess is right
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
-        std::cout << "\nON TO THE NEXT DOOR WE GOTTA GET SPONGEBOB BACK";
+        std::cout << "\nON TO THE NEXT DOOR";
         return true;
     }
     else 
@@ -82,6 +84,8 @@ bool PlayGame(int Difficulty)
 
 int main()
 {
+    srand(time(NULL));
+
     int LevelDifficulty = 1;
     const int MaxLevel = 4;
 
