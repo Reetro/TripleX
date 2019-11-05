@@ -3,7 +3,9 @@
 
 void PrintIntroduction(int Difficulty)
 {
-    std::cout << R"(
+   if (Difficulty <= 1)
+   {
+        std::cout << R"(
  __      __         .__                                      __           ___________        .__         .__           ____  ___
 /  \    /  \  ____  |  |    ____   ____    _____    ____   _/  |_  ____   \__    ___/_______ |__|______  |  |    ____  \   \/  /
 \   \/\/   /_/ __ \ |  |  _/ ___\ /  _ \  /     \ _/ __ \  \   __\/  _ \    |    |   \_  __ \|  |\____ \ |  |  _/ __ \  \     / 
@@ -17,10 +19,11 @@ void PrintIntroduction(int Difficulty)
 /_______  /|   __/  \____/ |___|  /\___  /  \___  >|___  / \____/ |___  / /_______  /\____ | |__| |__|  |__| \____/ |___|  /    
         \/ |__|                 \//_____/       \/     \/             \/          \/      \/                             \/      
 )";
-
+    
     std::cout << "\n\nSquidward: ah it sure is nice that spongebob isn't around anymore......WE GOTTA GET SPONGEBOB BACK!!!!!\n";
     std::cout << "SPONGEBOB IS JUST THROUGH THESE LEVEL " << Difficulty;
     std::cout << " DOORS WE GOTTA GUESS THE RIGHT CODES TO FIND HIM\n\n";
+   }
 }
 
 bool PlayGame(int Difficulty)
@@ -54,22 +57,22 @@ bool PlayGame(int Difficulty)
     // See if guess is right
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
-        std::cout << "\nO MY GOSH YOU WON YOU GOT SPONGEBOB BACK";
+        std::cout << "\nON TO THE NEXT DOOR WE GOTTA GET SPONGEBOB BACK";
         return true;
     }
     else 
     {
-       std::cout << "\nO MY GOSH HOW ARE THIS BAD??? NOW WE'LL NEVER GET SPONGEBOB BACK!!!"; 
+       std::cout << "\nO MY GOSH HOW ARE THIS BAD??? LUCKILY YOU CAN TRY AGAIN!!!"; 
        return false;
     }
 }
 
 int main()
 {
-    int LevelDifficulty = 2;
+    int LevelDifficulty = 1;
     const int MaxLevel = 4;
 
-    while (true)
+    while (LevelDifficulty <= MaxLevel) // loop game until all levels are completed
     {
         bool bLevelComplete = PlayGame(LevelDifficulty);
         std::cin.clear();
